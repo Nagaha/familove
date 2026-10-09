@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { createFamily, getAllFamily, getMyFamily } from '../controller/familyController.js';
-
+import { createFamilySchema } from './family.validation.js';
 
 export const familyRouter = Router();
 

@@ -1,7 +1,7 @@
 import { User } from './user.model.js';
 import { ApiError } from '../../utils/errors.js';
 
-const loadActiveUser = async (userId) => {
+export const loadActiveUser = async (userId) => {
   const user = await User.findById(userId);
   if (!user || !user.isActive) {
     throw ApiError.unauthorized('Invalid or expired token');

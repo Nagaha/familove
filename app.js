@@ -6,11 +6,10 @@ import { dirname, join } from 'path';
 import { connectMongoose } from './config.js/mongoose.js';
 import { env } from './config.js/env.js';
 import { connectRabbitMQ } from './config.js/rabbitMQ.js';
-import { familyRouter } from './router/familyRouter.js';
-import { userRouter } from './router/userRouter.js';
 import { mealRouter } from './router/mealRouter.js';
 import { authRouter } from './modules/auth/auth.routers.js';
 import { usersRouter } from './modules/user/user.routes.js';
+import { familyRouter  } from './modules/familiy/family.routes.js';
 import { errorHandler, notFound } from './middleware/errorHandler.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -31,12 +30,13 @@ app.use(express.static(join(__dirname, 'public')));
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/families', familyRouter);
 
 // Existing routes are kept intact; their collection helpers now share the
 // single Mongoose connection (see config.js/database.js).
-app.use('/family', familyRouter);
-app.use('/user', userRouter);
-app.use('/meal', mealRouter);
+// app.use('/family', familyRouter);
+// app.use('/user', userRouter);
+// app.use('/meal', mealRouter);
 
 app.use(notFound);
 app.use(errorHandler);
