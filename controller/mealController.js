@@ -1,5 +1,5 @@
-import { getMongoCollection } from "../database.js";
-import { getRabbitMQChannel } from "../rabbitMQ.js";
+import { getMongoCollection } from "../config.js/database.js";
+import { getRabbitMQChannel } from "../config.js/rabbitMQ.js";
 import dotenv from "dotenv";
 dotenv.config();
 

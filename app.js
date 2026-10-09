@@ -3,11 +3,11 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import {connectDB, getMongoCollection} from './database.js';
+import {connectDB, getMongoCollection} from './config.js/database.js';
 import {familyRouter} from './router/familyRouter.js';
 import {userRouter} from './router/userRouter.js';
 import {mealRouter} from './router/mealRouter.js';
-import { connectRabbitMQ } from './rabbitMQ.js';
+import { connectRabbitMQ } from './config.js/rabbitMQ.js';
 
 dotenv.config();
 
