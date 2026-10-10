@@ -10,3 +10,10 @@ export const createFamilySchema = z.strictObject ({
 .refine((data) => Object.keys(data).length > 0, {
     message: 'Family name is required',
   });
+
+export const joinFamilySchema = z.strictObject({
+    inviteCode: z
+    .string()
+    .trim()
+    .min(6, 'Invite code must be at least 6 characters')
+});
